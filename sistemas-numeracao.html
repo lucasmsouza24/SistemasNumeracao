@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistemas de Numeração</title>
+    <style>
+        body {
+            background-color: rgb(60, 34, 85);
+            color: white;
+        }
+        #container {
+            /* background-color: purple; */
+            width: 200px;
+            height: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            padding-top: 5px;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 100px;
+        }
+        button {
+            margin-top: 35px;
+        }
+        #textBin, #textOct, #textHex {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversão de Bases Numéricas</h1>
+    <div id="container">
+        Decimal: <br>
+        <input id="input_decimal"> <br><br>
+        <div id="textBin">Binário: </div>
+        <div id="textOct">Octal: </div>
+        <div id="textHex">Hexadecimal: </div>
+        <button onclick="baseConvert()">Converter</button>
+    </div>
+</body>
+</html>
+
+<script>
+
+    function baseConvert() {
+        // get input value
+        var decimal = Number(input_decimal.value);
+
+        // converting to base ...
+        var bin = decimal.toString(2);
+        var oct = decimal.toString(8);
+        var hex = decimal.toString(16);
+
+        // showing results
+        // console.log(`decimal: ${decimal}`);
+        // console.log(`bin: ${bin}`);
+        // console.log(`oct: ${oct}`);
+        // console.log(`hex: ${hex}`);
+        textBin.innerHTML = `Binário: ${bin}`; 
+        textOct.innerHTML = `Octal: ${oct}`; 
+        textHex.innerHTML = `Hexadecimal: ${hex}`; 
+    }
+
+</script>
