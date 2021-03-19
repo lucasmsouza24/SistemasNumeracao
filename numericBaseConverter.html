@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistemas de Numeração</title>
+    <style>
+        body {
+            background-color: rgb(98, 58, 136);
+            color: white;
+        }
+        #container {
+            background-color: rgb(60, 34, 85);
+            width: 200px;
+            /* height: 240px; */
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10%;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 100px;
+        }
+        button {
+            margin-top: 35px;
+            background-color: rgb(98, 58, 136);
+            border: 2px rgb(98, 58, 136) solid;
+            padding: 7px 15px;
+            color: white;
+            border-radius: 10%;
+        }
+        button:hover {
+            background-color: white;
+            border: 2px white solid;
+            color: black;
+        }
+        button:active {
+            background-color: rgb(60, 34, 85);
+            border: 2px rgb(60, 34, 85) solid;
+            color: white;
+        }
+        #textBin, #textOct, #textHex {
+            margin: 10px 1px;
+            /* background-color: white; */
+        }
+        footer {
+            position: absolute;
+            bottom: 0;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversão de Bases Numéricas</h1>
+    <div id="container">
+        Decimal: <br>
+        <input id="input_decimal"> <br><br>
+        <div id="textBin">Binário: </div>
+        <div id="textOct">Octal: </div>
+        <div id="textHex">Hexadecimal: </div>
+        <button onclick="baseConvert()">Converter</button>
+    </div>
+    <footer>Lucas Mesquita de Souza - CCO</footer>
+</body>
+</html>
+
+<script>
+
+    function baseConvert() {
+        // get input value
+        let decimal = Number(input_decimal.value);
+
+        if(Number.isNaN(decimal)) {
+            alert("Digite um valor numérico e decimal!");
+            input_decimal.value = "";
+            textBin.innerHTML = `Binário: `; 
+            textOct.innerHTML = `Octal: `; 
+            textHex.innerHTML = `Hexadecimal: `; 
+        } else {
+            // converting to base ...
+            let bin = decimal.toString(2);
+            let oct = decimal.toString(8);
+            let hex = decimal.toString(16);
+
+            // showing results
+            textBin.innerHTML = `Binário: ${bin}`; 
+            textOct.innerHTML = `Octal: ${oct}`; 
+            textHex.innerHTML = `Hexadecimal: ${hex.toUpperCase()}`; 
+        }
+    }
+</script>
